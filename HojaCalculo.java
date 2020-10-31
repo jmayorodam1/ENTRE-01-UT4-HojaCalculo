@@ -14,6 +14,7 @@ public class HojaCalculo
     private Fila fila1;
     private Fila fila2;
     private Fila fila3;
+    private int numeroFilas;
 
     /**
      * Constructor  
@@ -24,8 +25,8 @@ public class HojaCalculo
     public HojaCalculo(String nombre)    {
         this.nombre = nombre;
         this.fila1 = null;
-        this.fila1 = null;
-        this.fila1 = null;
+        this.fila2 = null;
+        this.fila3 = null;
 
     }
 
@@ -65,10 +66,25 @@ public class HojaCalculo
      * Devuelve el nº de filas de la hoja
      * (dependerá de cuántas filas estén a null)
      */
-    public int getNumeroFilas() {
-        
-        return 0;
+    public int getNumeroFilas () {
 
+       
+       numeroFilas = 3;
+           
+        
+       if(fila1 == null){
+            numeroFilas--;
+           
+        }
+       if(fila2 == null){
+           numeroFilas--;
+        }
+       if(fila3 == null){
+          numeroFilas--;
+        }
+        
+      
+       return numeroFilas;
     }
 
     /**
@@ -76,9 +92,13 @@ public class HojaCalculo
      * (tiene exactamente 3 filas)
      */
     public boolean hojaCompleta() {
+        if(getNumeroFilas() == 3){
+            
         return true;
 
     }
+    return hojaCompleta();
+}
 
     /**
      * Se añade una nueva fila a la hoja
@@ -87,31 +107,30 @@ public class HojaCalculo
      * si se añade como primera, segunda o tercera fila (no han de quedar huecos)
      */
     public void addFila(Fila fila) {
-         
+        new Fila();
+        if(getNumeroFilas() == 3){
+            System.out.println("FilaX no se puede añadir en HOJAX");
+            
+        }
 
     }
-
     /**
      * Dada la información a guardar en una fila el método
      * crea la fila y la añade a la hoja
      * (evita repetir código)
      */
     public void addFila(String id, Fecha fecha, double ingresos, double gastos) {
-         
+        
 
     }
-
     /**
      * Calcula y devuelve el total de ingresos entre
      * todas las filas que incluye la hoja
      */
     public double getTotalIngresos() {
-         
 
         return 0;
-
     }
-
     /**
      * Calcula y devuelve el total de gastos
      * entre todas las filas que incluye la hoja
@@ -135,22 +154,20 @@ public class HojaCalculo
      * con el formato exacto que indica el enunciado
      */
     public String toString() {
-         
+
         return null;
 
     }
 
-    /**
-     * Devuelve un duplicado de la hoja actual.
-     * El nombre de la hoja duplicada será "Duplicada HojaX"
-     * Al duplicar la hoja se duplicarán también las filas que contenga
-     */
-    public HojaCalculo duplicarHoja() {
-        
-        
-        
-       return null;
-    }
+    // /**
+     // * Devuelve un duplicado de la hoja actual.
+     // * El nombre de la hoja duplicada será "Duplicada HojaX"
+     // * Al duplicar la hoja se duplicarán también las filas que contenga
+     // */
+    // public HojaCalculo duplicarHoja() {
 
-   
+        
+        // return;
+    // }
+
 }

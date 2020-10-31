@@ -19,7 +19,9 @@ public class Fila
      * Constructor  
      */
     public Fila(String id)    {
-         
+         ingresos = 0;
+         gastos = 0;
+         // fecha = 1 ;
 
     }
 
@@ -27,7 +29,9 @@ public class Fila
      * Constructor  
      */
     public Fila(String id, Fecha fecha, double ingresos, double gastos)    {
-        
+        this.ingresos = ingresos;
+        this.gastos = gastos;
+        this.fecha = fecha;
 
     }
     
@@ -78,7 +82,7 @@ public class Fila
      * 
      */
     public Fila duplicar() {
-       return null;
+       return new Fila(this.id,this.fecha, this.ingresos, this.gastos);
 
     }
 
