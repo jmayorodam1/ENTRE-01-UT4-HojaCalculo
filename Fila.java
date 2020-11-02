@@ -12,8 +12,8 @@ public class Fila
 {
     private String id;
     private Fecha fecha;
-    private double ingresos;
-    private double gastos;
+    public double ingresos;
+    public double gastos;
 
     /**
      * Constructor  
@@ -21,7 +21,7 @@ public class Fila
     public Fila(String id)    {
          ingresos = 0;
          gastos = 0;
-         // fecha = 1 ;
+         // fecha = (1/1/2) ;
 
     }
 

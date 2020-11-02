@@ -68,23 +68,20 @@ public class HojaCalculo
      */
     public int getNumeroFilas () {
 
-       
-       numeroFilas = 3;
-           
+        numeroFilas = 3;
         
-       if(fila1 == null){
+        if(fila1 == null){
             numeroFilas--;
-           
+
         }
-       if(fila2 == null){
-           numeroFilas--;
+        if(fila2 == null){
+            numeroFilas--;
         }
-       if(fila3 == null){
-          numeroFilas--;
+        if(fila3 == null){
+            numeroFilas--;
         }
-        
-      
-       return numeroFilas;
+
+        return numeroFilas;
     }
 
     /**
@@ -93,12 +90,12 @@ public class HojaCalculo
      */
     public boolean hojaCompleta() {
         if(getNumeroFilas() == 3){
-            
-        return true;
 
+            return true;
+
+        }
+        return hojaCompleta();
     }
-    return hojaCompleta();
-}
 
     /**
      * Se añade una nueva fila a la hoja
@@ -106,37 +103,72 @@ public class HojaCalculo
      * Si no está completa se añade la fila a la hoja teniendo en cuenta
      * si se añade como primera, segunda o tercera fila (no han de quedar huecos)
      */
-    public void addFila(Fila fila) {
-        new Fila();
+    public Fila addFila()  {
+       
+        
         if(getNumeroFilas() == 3){
             System.out.println("FilaX no se puede añadir en HOJAX");
-            
-        }
 
+        }
+        else if(getNumeroFilas() < 3){
+            if(fila1 == null){
+               // fila1 = new Fila() ;
+               nombre = "fila1";
+
+            }
+            if(fila2 == null){
+               
+               nombre = "fila2";
+            }
+            if(fila3 == null){
+               
+               nombre = "fila3";
+               
+            }
+
+        }
+        return addFila();
     }
+
     /**
      * Dada la información a guardar en una fila el método
      * crea la fila y la añade a la hoja
      * (evita repetir código)
      */
     public void addFila(String id, Fecha fecha, double ingresos, double gastos) {
+        // fila1 = new Fila();
+        id = "";
+        // fecha = 1/10/2020;
+        ingresos = 0;
+        gastos = 0;
         
-
+        
+        // fila1 = new Fila();
     }
     /**
      * Calcula y devuelve el total de ingresos entre
      * todas las filas que incluye la hoja
      */
     public double getTotalIngresos() {
-
-        return 0;
+        double totalIngresos = fila1.getIngresos() + fila2.getIngresos() + fila3.getIngresos();
+        
+        
+        return totalIngresos;
+        
+        
+       
     }
+
+    
     /**
      * Calcula y devuelve el total de gastos
      * entre todas las filas que incluye la hoja
      */
     public double getTotalGastos() {
-        return 0;
+        double totalGastos = fila1.getGastos() + fila2.getGastos() + fila3.getGastos();
+        
+        
+        return totalGastos;
 
     }
 
@@ -145,29 +177,33 @@ public class HojaCalculo
      * entre todas las filas que incluye la hoja
      */
     public double getBeneficio() {
-        return 0;
-
-    }
-
-    /**
-     * Representación textual de la hoja
-     * con el formato exacto que indica el enunciado
-     */
-    public String toString() {
-
-        return null;
+        return getTotalIngresos() - getTotalGastos();
 
     }
 
     // /**
-     // * Devuelve un duplicado de la hoja actual.
-     // * El nombre de la hoja duplicada será "Duplicada HojaX"
-     // * Al duplicar la hoja se duplicarán también las filas que contenga
+     // * Representación textual de la hoja
+     // * con el formato exacto que indica el enunciado
      // */
+    // public String toString(String id, Fecha fecha, double ingresos, double gastos, double beneficios) {
+
+        // // return "Hoja1" + "/n        Fecha         Ingresos      Gastos       Beneficio"
+                       // // + "/n" + addFila(id, fecha, ingresos, gastos, beneficios)
+                       // // + "/n" + addFila(id, fecha, ingresos, gastos, beneficios)
+                       // // + "/n" + addFila(id, fecha, ingresos, gastos, beneficios);
+
+                    
+
+    // }
+
+    // /**
+    // * Devuelve un duplicado de la hoja actual.
+    // * El nombre de la hoja duplicada será "Duplicada HojaX"
+    // * Al duplicar la hoja se duplicarán también las filas que contenga
+    // */
     // public HojaCalculo duplicarHoja() {
 
-        
-        // return;
+    // // return new HojaCalculo(this.nombre, this.fila1, this.fila2, this.fila3, this.numeroFilas);
     // }
 
 }
